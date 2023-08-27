@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1> <center>Your Details:</center></h1>
+    <div id="dataContainer">
+    <!-- The data will be displayed here -->
+    </div>
+    <script>
+        const storedData = localStorage.getItem('apiResponse');
+if (storedData){
+  // If data exists, parse it and use it
+  const responseData = JSON.parse(storedData);
+  // Access the data properties and display them as needed
+  const dataContainer = document.getElementById('dataContainer');
+  dataContainer.innerHTML = `
+        <p>username: ${responseData.username}</p>
+        <p>ID: ${responseData.id}</p>
+        <p>Name: ${responseData.name}</p>
+        <p>Mobile: ${responseData.contactNumber}</p>
+        <p>DateOfBirth: ${responseData.dateOfBirth}</p>
+        <p>E-Mail: ${responseData.email}</p>
+<!-- Add more properties as needed -->
+      `;
+}else{
+  // Handle the case when no data is available
+      // For example, you can show an error message or redirect back to the form page
+}
+    </script>
+</body>
+</html>
